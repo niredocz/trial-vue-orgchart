@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
 import OrgChart from '@balkangraph/orgchart.js';
+import { ref, onMounted } from 'vue';
 
-const nodes = [
+const nodes = ref([
   { id: 1, name: "Denny Curtis", title: "CEO", img: "https://cdn.balkan.app/shared/2.jpg" },
   { id: 2, pid: 1, name: "Ashley Barnett", title: "Sales Manager", img: "https://cdn.balkan.app/shared/3.jpg" },
   { id: 3, pid: 1, name: "Caden Ellison", title: "Dev Manager", img: "https://cdn.balkan.app/shared/4.jpg" },
@@ -10,22 +10,24 @@ const nodes = [
   { id: 5, pid: 2, name: "Lynn Hussain", title: "Sales", img: "https://cdn.balkan.app/shared/6.jpg" },
   { id: 6, pid: 3, name: "Tanner May", title: "Developer", img: "https://cdn.balkan.app/shared/7.jpg" },
   { id: 7, pid: 3, name: "Fran Parsons", title: "Developer", img: "https://cdn.balkan.app/shared/8.jpg" }
-];
+]);
 
-const mytree = (domEl, x) => {
-  const chart = new OrgChart(domEl, {
-    nodes: x,
-    nodeBinding: {
-      field_0: "name",
-      img_0: "img"
-    }
-  });
+const mytree = (domEl: HTMLElement | null, x: any[]) => {
+  if (domEl) {
+    new OrgChart(domEl, {
+      nodes: x,
+      nodeBinding: {
+        field_0: "name",
+        img_0: "img"
+      }
+    });
+  }
 };
 
-const tree = ref(null);
+const tree = ref<HTMLElement | null>(null);
 
 onMounted(() => {
-  mytree(tree.value, nodes);
+  mytree(tree.value, nodes.value);
 });
 </script>
 

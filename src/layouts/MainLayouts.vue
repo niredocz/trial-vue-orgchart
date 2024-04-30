@@ -9,6 +9,10 @@ const menu = [
   {
     name: 'Org Charts',
     path: '/org-charts',
+  },
+  {
+    name: 'Am Charts',
+    path: '/am-charts',
   }
 ]
 

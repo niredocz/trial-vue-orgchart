@@ -18,6 +18,14 @@ const routes: any = [
     meta: {
       layout: MainLayouts
     }
+  },
+  {
+    path: '/am-charts',
+    name: 'am-charts',
+    component: () => import('../modules/am-charts/Index.vue'),
+    meta: {
+      layout: MainLayouts
+    }
   }
 ]
 

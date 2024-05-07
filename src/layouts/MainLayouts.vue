@@ -13,6 +13,10 @@ const menu = [
   {
     name: 'Am Charts',
     path: '/am-charts',
+  },
+  {
+    name: 'HighCharts',
+    path: '/highcharts',
   }
 ]
 

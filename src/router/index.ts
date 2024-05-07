@@ -26,6 +26,14 @@ const routes: any = [
     meta: {
       layout: MainLayouts
     }
+  },
+  {
+    path: '/highcharts',
+    name: 'Highcharts',
+    component: () => import('../modules/highcharts/Index.vue'),
+    meta: {
+      layout: MainLayouts
+    }
   }
 ]
 
